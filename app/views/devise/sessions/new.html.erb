@@ -1,0 +1,49 @@
+<div class="container">
+  <section class="vh-90">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <%= image_tag 'login.jpg' , alt: "login form" , class: "img-fluid" ,style: "border-radius: 1rem 0 0 1rem;height: 100%" %>
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+  
+                    <div class="form-outline mb-4">
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email" ,
+                        class: "form-control form-control-lg" %>
+                        <%= f.label :email, class: "form-label" %>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <%= f.password_field :password, autocomplete: "current-password" ,
+                        class: "form-control form-control-lg" %>
+                        <%= f.label :password, class: "form-label" %>
+                    </div>
+  
+                    <% if devise_mapping.rememberable? %>
+                      <div class="field">
+                        <%= f.check_box :remember_me, class: "form-check-input" %>
+                          <%= f.label :remember_me %>
+                      </div>
+                    <% end %>
+  
+                    <div class="pt-1 mb-4">
+                      <%= f.submit "Log in" , class: "btn btn-dark btn-lg btn-block" %>
+                    </div>
+                    <%= render "devise/shared/links" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
